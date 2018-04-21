@@ -5,7 +5,7 @@
 });
 angularnodeApp.controller('Demo1Ctrl', ['$scope' ,  'jsonModels','$http', '$timeout', 
 		function($scope, jsonModels,$http, $timeout  ) {
- 
+ $scope.url="https://portfolio-b.herokuapp.com/"
 		//$scope.allStocks = jsonModels.get();	 // Este servicio tiene que contener todos los datos del scope. Copy the stocks from the service (and later the cloud)
 
 		// once we have the data in allStocks we are going to process it to put in totals for the presenation.
@@ -19,7 +19,7 @@ angularnodeApp.controller('Demo1Ctrl', ['$scope' ,  'jsonModels','$http', '$time
 		// proof of concept only here 
 		
 		// we need to write function(s) to generate totals and then call the function(s)
-		$http.get("https://localhost:3443/api")
+		$http.get($scope.url+"api")
     .then(function(response) {
 		console.log(response.data);
 		$scope.allStocks = response.data[0].banks;
@@ -45,7 +45,7 @@ angularnodeApp.controller('Demo1Ctrl', ['$scope' ,  'jsonModels','$http', '$time
 
 
 	
-		$http.get("https://localhost:3443/api")
+		$http.get($scope.url+"api")
     .then(function(response) {
 		console.log(response.data);
 		$scope.allStocks = response.data[0].banks;
@@ -68,14 +68,14 @@ angularnodeApp.controller('Demo1Ctrl', ['$scope' ,  'jsonModels','$http', '$time
 	$scope.alertsText='Save Data Complete!';
 	$timeout(function() {$scope.alerts=false}, 3000); 
 		
-		$http.post('https://localhost:3443/apiBanks/5adb430bf36d2843be76b0bc', aux, {
+		$http.post($scope.url+'apiBanks/5adb430bf36d2843be76b0bc', aux, {
     headers: {
         'Content-Type': 'application/json'
     }
 })
 .then(function(response) {
         console.log("si");
-	$http.get("https://localhost:3443/api")
+	$http.get($scope.url+"api")
     .then(function(response) {
 		console.log(response.data);
 		$scope.allStocks = response.data[0].banks;
@@ -361,14 +361,14 @@ function(response) { // optional
         }
     ]
 };
-		$http.post('https://localhost:3443/apiBanks/5adb430bf36d2843be76b0bc', aux, {
+		$http.post($scope.url+'apiBanks/5adb430bf36d2843be76b0bc', aux, {
     headers: {
         'Content-Type': 'application/json'
     }
 })
 .then(function(response) {
         console.log("si");
-	$http.get("https://localhost:3443/api")
+	$http.get($scope.url+"api")
     .then(function(response) {
 		console.log(response.data);
 		$scope.allStocks = response.data[0].banks;
