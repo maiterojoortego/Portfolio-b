@@ -470,7 +470,7 @@ function(response) { // optional
 		 var prc=(gl/value)*100
       return prc;
     }
- 
+ //comment
 	
 	//purchase price total
 	$scope.ppriceTotal=0;
