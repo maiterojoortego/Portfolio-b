@@ -1,195 +1,171 @@
 <div class="row">
 <div class="col-md-12" >
-<h1>PORTFOLIO</h1>
- 
 
- <br>
- 
- <br> <br> 
-  <br>
-  <button ng-click="resetData()">RESET TEST</button>
-  <button ng-click="saveData()">SAVE TEST</button>
-  <button ng-click="refreshData()">REFRESH TEST</button>
+ <div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><center><h1>PORTFOLIO</h1><center></div>
+  <div class="panel-body">
+    <p>
+	<button ng-click="resetData()" class="btn btn-success" style="position:fixed; top:10px; z-index:10000; right:10px;">RESET TEST</button>
+  <button ng-click="saveData()" class="btn btn-success" style="position:fixed; top:10px; z-index:10000; right:130px;">SAVE TEST</button>
+  <button ng-click="refreshData()"class="btn btn-success" style="position:fixed; top:10px; z-index:10000; right:240px;">REFRESH TEST</button>
   <div ng-show="alerts" class="alert alert-success alert-dismissible" role="alert" style="position:fixed; bottom:0; left:20px; z-index:100;">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   {{alertsText}}
 </div>
- <div  class="container-fluid"   ng-repeat=" stockData in allStocks" >
+	</p>
+  </div>
 
-   <h3>{{stockData.name}}</h3>   <!--outer ng-repeat to iterate across all shares by symbol for the stock -->
-	<!--
-	  All the data relating to a single stock is now accessed via stockData, process the held array for individual lines
-	-->
-	<div class="row text-center" style="font-size:8px;"> <!-- inner ng-repeat, each line withing a symbol/stock --> 
-			<div class="col-sm-1" style="">
-				Description/Narrative 
-			</div>
-			<div class="col-sm-1">
-				
-			</div>
-			<div class="col-sm-1">
-				Symbol
-			</div>
-			<div class="col-sm-1">
-			   Date In
-			</div><!--
-			<div class="col-sm-1">
-				Date out
-			</div>-->
-			<div class="col-sm-3">
-			<div class="col-sm-3">
-				Qty
-			</div>
-			<div class="col-sm-3">
-				Total Qty
-			</div>
-			<div class="col-sm-3">
-				Cost
-			</div>		
-			<div class="col-sm-3">
-				Purchase Price
-			</div>	
-			</div>
-			<div class="col-sm-1">
-			<div class="col-sm-6">
-				Price
-			</div>
-			<div class="col-sm-6">
-				Value
-			</div>
-			</div>
-			<div class="col-sm-4">
-			<div class="col-sm-3">
-				Detail Gain/Loss
-			</div>				
-			<div class="col-sm-3">
-				Comulative Gain/Loss
-			</div>	
-			<div class="col-sm-3">
-				% Gain/Loss
-			</div>	
-			<div class="col-sm-3">
-				Sell Costs
-			</div>
-			</div>
-	</div>
+  <!-- Table -->
+  <table class="table"  style="font-size:10px;" ng-repeat=" stockData in allStocks" >
+    <tr>
+	<td>
+	<h3>{{stockData.name}}</h3>
+	</td>
+	</tr>
+    <tr>
+	<td style="width:150px;">
+	Description/Narrative 
+	</td>
+	<td style="width:50px;">
+	</td>
+	<td style="width:50px;">
+	Symbol
+	</td>
+	<td style="width:50px;">
+	Date In
+	</td>
+	<td>
+	Qty
+	</td>
+	<td>
+	Total Qty
+	</td>
+	<td>
+	Cost
+	</td>
+	<td>
+	Purchase Price
+	</td>
+	<td>
+	Price
+	</td>
+	<td>
+	Value
+	</td>
+	<td>
+	Detail Gain/Loss
+	</td>
+	<td>
+	Comulative Gain/Loss
+	</td>
+	<td>
+	% Gain/Loss
+	</td>
+	<td>
+	Sell Costs
+	</td>
+	</tr>
 	
-	<div class="row text-center"   ng-repeat="or in stockData.stocks.held"> <!-- inner ng-repeat, each line withing a symbol/stock -->
-			<div class="col-sm-1">
-				{{or.dn}}
-			</div>
-			<div class="col-sm-1">
-				{{or.index}}
-			</div>
-			<div class="col-sm-1">
-				{{or.sy}}
-			</div>
-			<div class="col-sm-1">
-			   {{or.datein}}
-			</div><!--
-			<div class="col-sm-1">
-				{{or.dateout}}
-			</div>--> 
-			<div class="col-sm-3">
-			<div class="col-sm-3">
-				{{or.qty}}
-			</div>
-			<div class="col-sm-3">
-
-			</div>
-			<div class="col-sm-3">
-				{{or.cost}}
-			</div>		
-			<div class="col-sm-3">
-				{{calculateCPP(or.qty,or.cost)|number:2}}
-			</div>	
-			</div>
-			<div class="col-sm-1">
-			<div class="col-sm-6"> 
-			<input type="text" ng-model="stockData.stocks.price" ng-keyup="refresh()" >
-				
-			</div>
-			<div class="col-sm-6">
-				{{calculateValue(or,stockData.stocks.price)}}
-			</div>
-			</div>
-			<div class="col-sm-4">
-			<div class="col-sm-3" ng-hide="or.dn == 'Cash Holding'">
+    <tr ng-repeat="or in stockData.stocks.held">
+	<td style="width:150px;">
+		{{or.dn}}
+	</td>
+	<td style="width:50px;">
+		{{or.index}}
+	</td>
+	<td style="width:50px;">
+		{{or.sy}}
+	</td>
+	<td style="width:50px;">
+		{{or.datein}}
+	</td>
+	<td>
+		{{or.qty}}
+	</td>
+	<td>
+		
+	</td>
+	<td>
+		{{or.cost}}
+	</td>
+	<td>
+		{{calculateCPP(or.qty,or.cost)|number:2}}
+	</td>
+	<td>
+		<input type="number" ng-hide="or.dn == 'Cash Holding'" ng-model="stockData.stocks.price" ng-click="refresh()" ng-keyup="refresh()" >
+	</td>
+	<td>
+		{{calculateValue(or,stockData.stocks.price)}}
+	</td>
+	<td>
+		<div class="col-sm-3" ng-hide="or.dn == 'Cash Holding'">
 				{{calculateGainLoss(or,stockData.stocks.price)}}
-			</div>				
-			<div class="col-sm-3">
-				 
 			</div>	
-			<div class="col-sm-3" ng-hide="or.dn == 'Cash Holding'">
+	</td>
+	<td>
+	 
+	</td>
+	<td>
+		<div class="col-sm-3" ng-hide="or.dn == 'Cash Holding'">
 				{{prcGL(calculateGainLoss(or,stockData.stocks.price),or.cost)|number:0}}%
 			</div>	
-			<div class="col-sm-3" ng-hide="or.dn == 'Cash Holding'">
+	</td>
+	<td>
+		<div class="col-sm-3" ng-hide="or.dn == 'Cash Holding'">
 				{{sellcost(calculateValue(or))}}
 			</div>
-			</div> 				
-	</div>
-<div class="row text-center"> <!-- inner ng-repeat, each line withing a symbol/stock -->
-			<div class="col-sm-1">
-				
-			</div>
-			<div class="col-sm-1">
-				
-			</div>
-			<div class="col-sm-1">
-				
-			</div>
-			<div class="col-sm-1">
-			   
-			</div><!--
-			<div class="col-sm-1">
-				
-			</div>-->
-			<div class="col-sm-3">
-				<div class="col-sm-3">
-				
-				</div>
+	</td>
+	</tr>
+	<tr>
+	<td style="width:150px;">
+	</td>
+	<td  style="width:50px;">
+	</td>
+	<td style="width:50px;">
+	</td>
+	<td style="width:50px;">
+	</td>
+	<td>
+	</td>
+	<td>
 				<div class="col-sm-3" ng-hide="stockData.name == 'Cash Holding'">
 				{{tqty(stockData)}}
 				</div>
-				<div class="col-sm-3">
-				
-				</div>		
-				<div class="col-sm-3">
-				
-				</div>	
-			</div>
-			<div class="col-sm-1">
-				<div class="col-sm-6">
-			
-				
-				</div>
-				<div class="col-sm-6">
-				
-				</div>
-			</div>
-			<div class="col-sm-4">
-				<div class="col-sm-3">
-				
-				</div>				
+	</td>
+	<td>
+	</td>
+	<td>
+	</td>
+	<td>
+	</td>
+	<td>
+	</td>
+	<td>
+	</td>
+	<td>			
 				<div class="col-sm-3" ng-hide="stockData.name == 'Cash Holding'">
 					{{gainLossTotal(stockData)}}
 				</div>	
-				<div class="col-sm-3">
-				
-				</div>	
-				<div class="col-sm-3">
-			
-				</div>
-			</div> 				
-	</div>
- 
- </div> <br></br>
- <div class="col-sm-12">
-	<div class="col-sm-3">Purchase Price Total = {{ppriceTotal}} </div>
-	<div class="col-sm-3">Gross Present Value = {{grosspervalue}} </div>
-	<div class="col-sm-3">Total Sell Costs = {{totalsell}} </div>
-	<div class="col-sm-3">Gross Profit/Loss = {{grosspl}} </div>
-	<div class="col-sm-3">GPV after Sell Costs = {{grosspervalue - totalsell}}</div>
+	</td>
+	<td>
+	</td>
+	<td>
+	</td>
+	</tr>
+  </table>
+</div>
+
+ <br> 
+ <br> 
+ <br> 
+ <br> 
+ <div  style="width:100%; position:fixed; bottom:0; left:0; background:#333; color:white; height:50px; padding-top:15px;">
+	<div style="width:20%; float:left;">Purchase Price Total = {{ppriceTotal}} </div>
+	<div style="width:20%; float:left;">Gross Present Value = {{grosspervalue}} </div>
+	<div style="width:20%; float:left;">Total Sell Costs = {{totalsell}} </div>
+	<div style="width:20%; float:left;">Gross Profit/Loss = {{grosspl}} </div>
+	<div style="width:20%; float:left;">GPV after Sell Costs = {{grosspervalue - totalsell}}</div>
  </div> 
 </div>
 </div>

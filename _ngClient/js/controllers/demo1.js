@@ -6,6 +6,7 @@
 angularnodeApp.controller('Demo1Ctrl', ['$scope' ,  'jsonModels','$http', '$timeout', 
 		function($scope, jsonModels,$http, $timeout  ) {
  $scope.url="https://portfolio-b.herokuapp.com/"
+ //$scope.url="https://localhost:3443/"
 		//$scope.allStocks = jsonModels.get();	 // Este servicio tiene que contener todos los datos del scope. Copy the stocks from the service (and later the cloud)
 
 		// once we have the data in allStocks we are going to process it to put in totals for the presenation.
@@ -127,13 +128,13 @@ function(response) { // optional
             "stocks": {
                 "Name": "Allied Irish Banks Group",
                 "HO": "Dublin",
-                "price": "5",
+                "price": 5,
                 "held": [
                     {
                         "dn": "Allied Irish Banks Group",
                         "index": "ise",
                         "sy": "AIBG.I",
-                        "datein": "02012018",
+                        "datein": "02/01/2018",
                         "dateout": "",
                         "qty": "1000",
                         "cost": "5000.00",
@@ -148,13 +149,13 @@ function(response) { // optional
             "stocks": {
                 "Name": "Bank of Ireland",
                 "HO": "Dublin",
-                "price": "4",
+                "price": 4,
                 "held": [
                     {
                         "dn": "Bank of Ireland",
                         "index": "ise",
                         "sy": "BIRG.I",
-                        "datein": "01012012",
+                        "datein": "01/01/2012",
                         "dateout": "",
                         "qty": "1000",
                         "cost": "4000.00",
@@ -165,7 +166,7 @@ function(response) { // optional
                         "dn": "Bank of Ireland",
                         "index": "ise",
                         "sy": "BIRG.I",
-                        "datein": "01012013",
+                        "datein": "01/01/2013",
                         "dateout": "",
                         "qty": "2000",
                         "cost": "7000.00",
@@ -176,7 +177,7 @@ function(response) { // optional
                         "dn": "Bank of Ireland",
                         "index": "ise",
                         "sy": "BIRG.I",
-                        "datein": "01012014",
+                        "datein": "01/01/2014",
                         "dateout": "",
                         "qty": "3000",
                         "cost": "9000.00",
@@ -187,7 +188,7 @@ function(response) { // optional
                         "dn": "Bank of Ireland",
                         "index": "ise",
                         "sy": "BIRG.I",
-                        "datein": "01012015",
+                        "datein": "01/01/2015",
                         "dateout": "",
                         "qty": "1000",
                         "cost": "3500.00",
@@ -198,7 +199,7 @@ function(response) { // optional
                         "dn": "Bank of Ireland",
                         "index": "ise",
                         "sy": "BIRG.I",
-                        "datein": "01012016",
+                        "datein": "01/01/2016",
                         "dateout": "",
                         "qty": "2000",
                         "cost": "7000.00",
@@ -209,7 +210,7 @@ function(response) { // optional
                         "dn": "Bank of Ireland",
                         "index": "ise",
                         "sy": "BIRG.I",
-                        "datein": "01012017",
+                        "datein": "01/01/2017",
                         "dateout": "",
                         "qty": "3000",
                         "cost": "12000.00",
@@ -220,7 +221,7 @@ function(response) { // optional
                         "dn": "Bank of Ireland",
                         "index": "ise",
                         "sy": "BIRG.I",
-                        "datein": "01012018",
+                        "datein": "01/01/2018",
                         "dateout": "",
                         "qty": "4000",
                         "cost": "22000.00",
@@ -235,13 +236,13 @@ function(response) { // optional
             "stocks": {
                 "Name": "CRH.I",
                 "HO": "Dublin",
-                "price": "30",
+                "price": 30,
                 "held": [
                     {
                         "dn": "CHR",
                         "index": "ise",
                         "sy": "CRH.I",
-                        "datein": "01012014",
+                        "datein": "01/01/2014",
                         "dateout": "",
                         "qty": "3000",
                         "cost": "60000.00",
@@ -252,7 +253,7 @@ function(response) { // optional
                         "dn": "CHR",
                         "index": "ise",
                         "sy": "CRH.I",
-                        "datein": "01012015",
+                        "datein": "01/01/2015",
                         "dateout": "",
                         "qty": "1000",
                         "cost": "25000.00",
@@ -263,7 +264,7 @@ function(response) { // optional
                         "dn": "CHR",
                         "index": "ise",
                         "sy": "CRH.I",
-                        "datein": "01012016",
+                        "datein": "01/01/2016",
                         "dateout": "",
                         "qty": "2000",
                         "cost": "60000.00",
@@ -278,13 +279,13 @@ function(response) { // optional
             "stocks": {
                 "Name": "Tesco",
                 "HO": "Dublin",
-                "price": "4.5",
+                "price": 4.5,
                 "held": [
                     {
                         "dn": "Tesco",
                         "index": "ftse",
                         "sy": "TSCO",
-                        "datein": "01012014",
+                        "datein": "01/01/2014",
                         "dateout": "",
                         "qty": "4000",
                         "cost": "12000.00",
@@ -295,7 +296,7 @@ function(response) { // optional
                         "dn": "Tesco",
                         "index": "ftse",
                         "sy": "TSCO",
-                        "datein": "01012015",
+                        "datein": "01/01/2015",
                         "dateout": "",
                         "qty": "8000",
                         "cost": "20000.00",
@@ -306,7 +307,7 @@ function(response) { // optional
                         "dn": "Tesco",
                         "index": "ftse",
                         "sy": "TSCO",
-                        "datein": "01012016",
+                        "datein": "01/01/2016",
                         "dateout": "",
                         "qty": "2000",
                         "cost": "9000.00",
@@ -321,13 +322,13 @@ function(response) { // optional
             "stocks": {
                 "Name": "Ripple",
                 "HO": "Dublin",
-                "price": "2",
+                "price": 2,
                 "held": [
                     {
                         "dn": "Ripple",
                         "index": "coinra",
                         "sy": "ripple-xrp",
-                        "datein": "01012012",
+                        "datein": "01/01/2012",
                         "dateout": "",
                         "qty": "3000",
                         "cost": "6000.00",
@@ -338,7 +339,7 @@ function(response) { // optional
                         "dn": "Ripple",
                         "index": "coinra",
                         "sy": "ripple-xrp",
-                        "datein": "01012013",
+                        "datein": "01/01/2013",
                         "dateout": "",
                         "qty": "1000",
                         "cost": "2500.00",
@@ -349,7 +350,7 @@ function(response) { // optional
                         "dn": "Ripple",
                         "index": "coinra",
                         "sy": "ripple-xrp",
-                        "datein": "01012014",
+                        "datein": "01/01/2014",
                         "dateout": "",
                         "qty": "2000",
                         "cost": "6000.00",
@@ -475,6 +476,7 @@ function(response) { // optional
 	//purchase price total
 	$scope.ppriceTotal=0;
     $scope.ppTotal = function(stocks) {
+		$scope.ppriceTotal=0;
       for (var j = 0; j < stocks.length; j++) {
 		for (var i = 0; i < stocks[j].stocks.held.length; i++) {
 		  
@@ -486,6 +488,7 @@ function(response) { // optional
 	
 	$scope.grosspervalue=0;
     $scope.grossprvalue = function(stocks) {
+		$scope.grosspervalue=0;
       for (var j = 0; j < stocks.length; j++) {
 		for (var i = 0; i < stocks[j].stocks.held.length; i++) {
 			
@@ -497,6 +500,7 @@ function(response) { // optional
 	
 	$scope.totalsell=0;
     $scope.totalsellcost = function(stocks) {
+		$scope.totalsell=0;
       for (var j = 1; j < stocks.length; j++) {
 		for (var i = 0; i < stocks[j].stocks.held.length; i++) {
 			
@@ -508,6 +512,7 @@ function(response) { // optional
 	
 	$scope.grosspl=0;
     $scope.grossprofitloss = function(stocks) {
+		$scope.grosspl=0;
       for (var j = 1; j < stocks.length; j++) {
 		for (var i = 0; i < stocks[j].stocks.held.length; i++) {
 			
